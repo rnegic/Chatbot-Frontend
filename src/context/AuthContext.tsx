@@ -1,3 +1,5 @@
+'use client'
+
 import { useContext, createContext, useEffect, useState, ReactNode } from "react";
 
 type User = {

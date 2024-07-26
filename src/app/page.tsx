@@ -12,7 +12,7 @@ export default function Home() {
           <h1>with AI</h1>
           <h1>Free. Try now.</h1>
         </div>
-        <Button className="w-48 h-12 bg-buttonBg text-textColorDark rounded-xl">
+        <Button className="w-48 h-12 bg-buttonBg text-textColorDark rounded-xl hover:bg-blue-200">
           Try now
         </Button>
         <div className="w-4/12 text-2xl text-textColorMid">

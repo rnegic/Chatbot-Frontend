@@ -59,6 +59,7 @@ const config = {
         textColorLight: '#CEE8FF',
         textColorMid: '#ACC2EF',
         bgColor: '#0F1C2E',
+        textWarning: '#c8e1fa',
       },
       borderRadius: {
         lg: "var(--radius)",
