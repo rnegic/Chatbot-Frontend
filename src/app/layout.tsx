@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { AuthProvider } from "@/context/AuthContext";
 import { Inter } from "next/font/google";
+import axios from "axios";
+axios.defaults.baseURL = 'http://localhost:5000/api/v1';
+axios.defaults.withCredentials = true;
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -17,9 +20,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <AuthProvider>
-        <body className={inter.className}>{children}</body>
-      </AuthProvider>
+      <body className={inter.className}>
+        <AuthProvider>
+          {children}    
+        </AuthProvider>
+      </body>
     </html>
+
   );
 }

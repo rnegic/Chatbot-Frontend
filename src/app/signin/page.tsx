@@ -4,6 +4,8 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 
+import { useAuth } from "@/context/AuthContext"
+
 import React from "react";
 import { Button } from "@/components/ui/button"
 import {
@@ -24,6 +26,9 @@ const formSchema = z.object({
 })
 
 const Signin = () => {
+    
+    const auth = useAuth();
+
     const form = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -32,9 +37,14 @@ const Signin = () => {
         },
     })
 
-    const onSubmit = (data: any) => {
-        console.log(data)
-    }
+    const onSubmit = async (data: { email: string; password: string }) => {
+        const { email, password } = data;
+        try {
+            await auth?.signin(email, password);
+        } catch (error) {
+            console.error("Login failed:", error);
+        }
+    };
 
     return (
         <Form {...form}>

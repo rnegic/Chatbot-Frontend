@@ -1,6 +1,7 @@
 'use client'
 
 import { useContext, createContext, useEffect, useState, ReactNode } from "react";
+import { loginUser } from "@/app/api/api-communicator";
 
 type User = {
     name: string;
@@ -23,7 +24,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     }, []);
     const signin = async (email: string, password: string) => {
-
+        const data = await loginUser(email, password);
+        if (data) {
+            setUser({ email: data.email, name: data.name });
+            setIsSignedin(true);
+        }
     };
     const signup = async (name: string, email: string, password: string) => { };
     const signout = async () => { };
