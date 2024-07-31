@@ -5,7 +5,7 @@
     min-height: 100vh;
 
     padding-bottom: 200px;
-    padding-right: 200px;
+    padding-right: 100px;
 }
 
 .blob {
@@ -15,5 +15,11 @@
 }
 
 .blob:nth-child(2) {
-    filter: blur(350px);
+    filter: blur(300px);
+}
+
+@media screen and (max-width: 1450px) {
+    .container {
+        padding-right: 30px;
+    }
 }

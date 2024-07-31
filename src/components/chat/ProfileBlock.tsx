@@ -6,17 +6,19 @@ const ProfileBlock = () => {
 
     const auth = useAuth();
 
-    <div className="flex justify-between rounded-xl">
-        <Avatar>
-            <AvatarImage src="https://github.com/shadcn.png" />
-            <AvatarFallback>
-                {auth?.user?.name[0]}
-            </AvatarFallback>
-        </Avatar>
-        <div className="">
-            {auth?.user?.name}'s profile
+    return (
+        <div className="flex justify-between rounded-xl gap-3">
+            <Avatar>
+                <AvatarImage src="https://github.com/shadcn.png" />
+                <AvatarFallback>
+                    {auth?.user?.name[0]}
+                </AvatarFallback>
+            </Avatar>
+            <div className="text-textColorLight">
+                {auth?.user?.name}'s profile
+            </div>
         </div>
-    </div>
+    );
 };
 
 export default ProfileBlock;
